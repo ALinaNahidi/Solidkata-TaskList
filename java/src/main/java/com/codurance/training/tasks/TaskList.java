@@ -5,6 +5,7 @@ import com.codurance.training.tasks.services.CustomizeService;
 import com.codurance.training.tasks.services.ErrorService;
 import com.codurance.training.tasks.services.HelpService;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,6 +20,7 @@ public final class TaskList implements Runnable {
     private long lastId = 0;
     private final BufferedReader in;
     private final PrintWriter out;
+
 
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -118,6 +120,7 @@ public final class TaskList implements Runnable {
                 errorService.error();
             }
         }
+
     }
 
     private long nextId() {
