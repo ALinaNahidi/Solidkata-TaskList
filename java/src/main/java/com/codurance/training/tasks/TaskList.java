@@ -1,9 +1,6 @@
 package com.codurance.training.tasks;
 
-import com.codurance.training.tasks.services.CheckService;
-import com.codurance.training.tasks.services.CustomizeService;
-import com.codurance.training.tasks.services.ErrorService;
-import com.codurance.training.tasks.services.HelpService;
+import com.codurance.training.tasks.services.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -88,20 +85,20 @@ public final class TaskList implements Runnable {
                 deadline.addDeadline();
             }
             case "today" -> {
-                View viewToday = new View();
+                ViewTodayService viewToday = new ViewToday();
                 viewToday.viewToday();
             }
             case "view" -> {
                 String[] subCommand = commandRest[1].split(" ");
                 if (Objects.equals(subCommand[1], "project")) {
-                    View show = new View();
+                    ViewByProject show = new ViewByProject();
                     show.show();
                 } else if (Objects.equals(subCommand[1], "deadline")) {
-                    View view = new View();
+                    ViewByDeadlineService view = new ViewByDeadline();
                     Date viewDate = new SimpleDateFormat("dd/MM/yyyy").parse(commandLine.split(" ")[3]);
                     view.viewByDeadline(viewDate);
                 } else if (Objects.equals(subCommand[1], "date")) {
-                    View view = new View();
+                    ViewByDateService view = new ViewByDate();
                     Date viewDate = new SimpleDateFormat("dd/MM/yyyy").parse(commandLine.split(" ")[3]);
                     view.viewByDate(viewDate);
                 }
